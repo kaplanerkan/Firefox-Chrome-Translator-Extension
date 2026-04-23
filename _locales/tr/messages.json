@@ -1,0 +1,22 @@
+{
+  "extName": {
+    "message": "Seçimi Çevir",
+    "description": "Eklenti adı"
+  },
+  "extDescription": {
+    "message": "Seçilen metni istenen dile çevirir (varsayılan: Türkçe).",
+    "description": "Eklenti açıklaması"
+  },
+  "ctxMenuTitle": {
+    "message": "Çevir: \"%s\"",
+    "description": "Sağ tık menüsü başlığı"
+  },
+  "errTooLong": {
+    "message": "Seçim çok uzun. En fazla 5000 karakter desteklenir.",
+    "description": "Uzun metin hatası"
+  },
+  "errTranslate": {
+    "message": "Çeviri başarısız",
+    "description": "Genel çeviri hatası"
+  }
+}

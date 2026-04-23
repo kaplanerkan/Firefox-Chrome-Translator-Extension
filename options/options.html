@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>Seçimi Çevir — Ayarlar</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <h1>Seçimi Çevir</h1>
+
+    <label for="sourceLang">Kaynak dil</label>
+    <select id="sourceLang"></select>
+
+    <label for="targetLang">Hedef dil</label>
+    <select id="targetLang"></select>
+
+    <div class="row">
+      <button id="save" type="button">Kaydet</button>
+      <span id="status" class="status" aria-live="polite"></span>
+    </div>
+
+    <p class="hint">
+      Varsayılan: kaynak <code>auto</code>, hedef <code>tr</code>.
+      Çeviri, Google'ın ücretsiz <code>translate.googleapis.com</code> uç noktası üzerinden yapılır.
+    </p>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>
