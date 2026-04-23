@@ -85,6 +85,33 @@ To change languages, open the extension's options:
 - Firefox: `about:addons` → Seçimi Çevir → Preferences
 - Chrome: `chrome://extensions` → Seçimi Çevir → Details → Extension options
 
+## Testing & Debugging
+
+### Manual test scenarios
+
+1. **Basic translation** — Open any page (e.g. `https://en.wikipedia.org/wiki/Firefox`), select a sentence, right-click → **Çevir: "..."**. A dark tooltip should appear anchored to the selection with the Turkish translation.
+2. **Change target language** — Open the options page, set target to `de` (German), save, then translate the same selection again. The result should now be German.
+3. **Copy button** — Click **Kopyala** in the tooltip and paste elsewhere to confirm the translated text was copied.
+4. **Dismissal** — Press `Esc` or click outside the tooltip — it should disappear.
+5. **Long text guard** — Select 5000+ characters. You should see a friendly "Seçim çok uzun" error instead of a failed request.
+6. **Offline** — Disable the network and try translating — the tooltip should show an error, not hang.
+
+### Opening the dev consoles
+
+- **Chrome — background (service worker):** `chrome://extensions` → Seçimi Çevir → **Inspect views: service worker**.
+- **Firefox — background:** `about:debugging#/runtime/this-firefox` → Seçimi Çevir → **Inspect**.
+- **Content script (both browsers):** On the tested page press `F12` → **Console**. Content-script logs appear here.
+- **Options page:** Right-click inside the options popup → **Inspect**.
+
+### Reloading after code changes
+
+- **Chrome:** `chrome://extensions` → click the **reload** (↻) icon on the extension card. Always required after changing `manifest.json` or `background.js`. For content-script-only edits, reloading the page is enough.
+- **Firefox:** `about:debugging` → **Reload** next to the extension. Or use `npx web-ext run` which auto-reloads on file changes.
+
+### Rate limits
+
+The free Google Translate endpoint may occasionally return HTTP 429 (too many requests). You'll see the error in the service-worker / background console. Wait a minute or switch networks and retry.
+
 ## Permissions
 
 | Permission | Why |
